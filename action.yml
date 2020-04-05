@@ -1,0 +1,27 @@
+name: "Cloud.gov CF CLI Tools"
+description: "Deploy and manage apps to cloud.gov"
+inputs:
+  cf_api:
+    description: "Target API Endpoint of Cloud Foundry"
+    required: true
+  cf_username:
+    description: "Username for API authentication"
+    required: true
+  cf_password:
+    description: "Password for API authentication"
+    required: true
+  cf_org:
+    description: "Target Organization"
+    required: false
+  cf_space:
+    description: "Target Space"
+    required: false
+  cf_manifest:
+    description: "App Name"
+    required: false
+  cf_command:
+    description: "Command to run"
+    required: false
+runs:
+  using: "docker"
+  image: "Dockerfile"
