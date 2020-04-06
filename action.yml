@@ -1,8 +1,8 @@
 name: "Cloud.gov CF CLI Tools"
-description: "Deploy and manage apps to cloud.gov"
+description: "Deploy and manage apps on cloud.gov"
 inputs:
   cf_api:
-    description: "Target API Endpoint of Cloud Foundry"
+    description: "Target API Endpoint"
     required: true
   cf_username:
     description: "Username for API authentication"
