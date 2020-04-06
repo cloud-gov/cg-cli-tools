@@ -14,7 +14,7 @@ cf auth "$INPUT_CF_USERNAME" "$INPUT_CF_PASSWORD"
 cf target -o "$INPUT_CF_ORG" -s "$INPUT_CF_SPACE"
 
 if [[ ! -r "$INPUT_CF_COMMAND" ]]; then
-    cf push -f "$MANIFEST"
+    cf v3-zdt-push -f "$MANIFEST"
 else
     cf $INPUT_CF_COMMAND
 fi
