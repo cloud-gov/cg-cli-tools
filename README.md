@@ -41,7 +41,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Deploy to cloud.gov
-        uses: 18f/cg-cli-tools@master
+        uses: cloud-gov/cg-cli-tools@master
         with: 
           cf_api: https://api.fr.cloud.gov
           cf_username: ${{ secrets.CG_USERNAME }}
