@@ -8,7 +8,7 @@ Follow the instructions for setting up a [cloud.gov service account](https://clo
 
 ## Sample workflow
 
-The following is an example of a workflow that uses this action. This example shows how to deploy a simple .NET Cote app to cloud.gov
+The following is an example of a workflow that uses this action. This example shows how to deploy a simple .NET Core app to cloud.gov
 
 ```yml
 name: .NET Core Deploy
