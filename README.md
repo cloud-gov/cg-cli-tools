@@ -15,7 +15,7 @@ name: .NET Core Deploy
 
 on:
   pull_request:
-    branches: [ master ]
+    branches: [ {branch-name} ]
 
 jobs:
   build:
@@ -41,7 +41,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Deploy to cloud.gov
-        uses: cloud-gov/cg-cli-tools@master
+        uses: cloud-gov/cg-cli-tools@main
         with: 
           cf_api: https://api.fr.cloud.gov
           cf_username: ${{ secrets.CG_USERNAME }}
