@@ -16,7 +16,7 @@ cf target -o "$INPUT_CF_ORG" -s "$INPUT_CF_SPACE"
 if [[ -z "$INPUT_CF_COMMAND" ]]; then  
   if [[ -r "$INPUT_CF_VARS_FILE" ]]; then 
     echo "Pushing with vars file: $INPUT_CF_VARS_FILE"
-    cf push --vars-file "$CF_VARS_FILE"
+    cf push --vars-file "$INPUT_CF_VARS_FILE"
   else 
     echo "Pusing with manifest file: $MANIFEST"
     cf push -f "$MANIFEST"
