@@ -14,7 +14,7 @@ cf target -o "$INPUT_CF_ORG" -s "$INPUT_CF_SPACE"
 
 # If no cf CLI command is set, push app with manifest or vars file.
 if [[ -z "$INPUT_CF_COMMAND" ]]; then  
-  if [[ -r "$CF_VARS_FILE" ]]; then 
+  if [[ -r "$INPUT_CF_VARS_FILE" ]]; then 
     echo "Pushing with vars file: $CF_VARS_FILE"
     cf push --vars-file "$CF_VARS_FILE"
   else 
