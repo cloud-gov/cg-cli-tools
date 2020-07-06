@@ -12,9 +12,17 @@ cf api "$INPUT_CF_API"
 cf auth "$INPUT_CF_USERNAME" "$INPUT_CF_PASSWORD"
 cf target -o "$INPUT_CF_ORG" -s "$INPUT_CF_SPACE"
 
-if [[ -z "$INPUT_CF_COMMAND" ]]; then
-    cf v3-zdt-push -f "$MANIFEST"
+# If no cf CLI command is set, push app with manifest or vars file.
+if [[ -z "$INPUT_CF_COMMAND" ]]; then  
+  if [[ -r "$CF_VARS_FILE" ]]; then 
+    echo "Pushing with vars file: $CF_VARS_FILE"
+    cf push --vars-file "$CF_VARS_FILE"
+  else 
+    echo "Pusing with manifest file: $MANIFEST"
+    cf push -f "$MANIFEST"
+  fi
+# Otherwise, run the cf CLI command.
 else
-    # shellcheck disable=SC2086
+    echo "Running command: $INPUT_CF_COMMAND"
     cf $INPUT_CF_COMMAND
 fi

@@ -2,7 +2,7 @@ name: "Cloud.gov CF CLI Tools"
 description: "Deploy and manage apps on cloud.gov"
 inputs:
   cf_api:
-    description: "Target API Endpoint"
+    description: "Target API endpoint"
     required: true
   cf_username:
     description: "Username for API authentication"
@@ -11,16 +11,19 @@ inputs:
     description: "Password for API authentication"
     required: true
   cf_org:
-    description: "Target Organization"
+    description: "Target organization"
     required: false
   cf_space:
-    description: "Target Space"
+    description: "Target space"
     required: false
   cf_manifest:
-    description: "App Name"
+    description: "Manifest file name"
+    required: false
+  cf_vars_file:
+    description: "Name of the vars file to use"
     required: false
   cf_command:
-    description: "Command to run"
+    description: "CF CLI command to run"
     required: false
 runs:
   using: "docker"
