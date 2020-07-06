@@ -15,13 +15,13 @@ cf target -o "$INPUT_CF_ORG" -s "$INPUT_CF_SPACE"
 # If no cf CLI command is set, push app with manifest or vars file.
 if [[ -z "$INPUT_CF_COMMAND" ]]; then  
   if [[ -r "$INPUT_CF_VARS_FILE" ]]; then 
-    echo "Pushing with vars file: $CF_VARS_FILE"
+    echo "Pushing with vars file: $INPUT_CF_VARS_FILE"
     cf push --vars-file "$CF_VARS_FILE"
   else 
     echo "Pusing with manifest file: $MANIFEST"
     cf push -f "$MANIFEST"
   fi
-# Otherwise, run the cf CLI command.
+# Otherwise, run the specified cf CLI command.
 else
     echo "Running command: $INPUT_CF_COMMAND"
     cf $INPUT_CF_COMMAND
