@@ -53,3 +53,12 @@ jobs:
 ```
 
 You can optionally add the name of a manifest file (default is `manifest.yml`), use a `vars.yml` file with your push, or specify a command to run instead of `cf push` (e.g., `cf push APP_NAME --strategy rolling` for a zero downtime deploy).
+
+## Other options
+
+There are other tools and utilities that you can use to deploy your application to cloud.gov. Here is a list of some of the more common options.
+
+* https://github.com/18F/cg-deploy-action
+* https://github.com/usds/cloud-gov-cli
+* https://github.com/alphagov/paas-docker-cloudfoundry-tools 
+* https://hub.docker.com/r/governmentpaas/cf-cli 
