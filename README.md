@@ -51,4 +51,4 @@ jobs:
 
 ```
 
-You can optionally add the name of a manifest file (default is `manifest.yml`), and a command to run instead of `cf push` (e.g., `cf run-task APPNAME "TASK"`).
+You can optionally add the name of a manifest file (default is `manifest.yml`), use a `vars.yml` file with your push, or specify a command to run instead of `cf push` (e.g., `v3-zdt-push APP_NAME` for a zero downtime deploy).
