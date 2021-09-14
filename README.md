@@ -62,3 +62,4 @@ There are other tools and utilities that you can use to deploy your application 
 * https://github.com/usds/cloud-gov-cli
 * https://github.com/alphagov/paas-docker-cloudfoundry-tools 
 * https://hub.docker.com/r/governmentpaas/cf-cli 
+* https://registry.terraform.io/providers/cloudfoundry-community/cloudfoundry/latest/docs 
