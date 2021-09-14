@@ -48,7 +48,8 @@ jobs:
           cf_password: ${{ secrets.CG_PASSWORD }}
           cf_org: your-org
           cf_space: your-space
+          cf_command: push
 
 ```
 
-You can optionally add the name of a manifest file (default is `manifest.yml`), use a `vars.yml` file with your push, or specify a command to run instead of `cf push` (e.g., `v3-zdt-push APP_NAME` for a zero downtime deploy).
+You can optionally add the name of a manifest file (default is `manifest.yml`), use a `vars.yml` file with your push, or specify a command to run instead of `cf push` (e.g., `cf push APP_NAME --strategy rolling` for a zero downtime deploy).
