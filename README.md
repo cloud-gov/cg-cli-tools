@@ -54,6 +54,10 @@ jobs:
 
 You can optionally add the name of a manifest file (default is `manifest.yml`), use a `vars.yml` file with your push, or specify a command to run instead of `cf push` (e.g., `cf push APP_NAME --strategy rolling` for a zero downtime deploy).
 
+## A note on versions
+
+By default, this action uses the cf CLI v7. If you want to take advantage of some of the [new features of cf CLI v8](https://docs.cloudfoundry.org/cf-cli/v8.html#new-workflows), you can target the `cli-v8` branch when setting up your workflow, like so: `cloud-gov/cg-cli-tools@cli-v8`
+
 ## Other options
 
 There are other tools and utilities that you can use to deploy your application to cloud.gov. Here is a list of some of the more common options.
