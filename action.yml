@@ -2,8 +2,8 @@ name: "Cloud.gov CF CLI Tools"
 description: "Deploy and manage apps on cloud.gov"
 inputs:
   cf_api:
-    description: "Target API endpoint"
-    required: true
+    description: "Target API endpoint. Defaults to api.fr.cloud.gov."
+    required: false
   cf_username:
     description: "Username for API authentication"
     required: true

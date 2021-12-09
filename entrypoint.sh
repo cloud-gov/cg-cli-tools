@@ -7,8 +7,9 @@ if [[ ! -r "$MANIFEST" ]]; then
   exit 1
 fi
 
+CF_API=${INPUT_CF_API:-api.fr.cloud.gov}
 # Authenticate and target CF org and space.
-cf api "$INPUT_CF_API"
+cf api "$CF_API"
 cf auth "$INPUT_CF_USERNAME" "$INPUT_CF_PASSWORD"
 cf target -o "$INPUT_CF_ORG" -s "$INPUT_CF_SPACE"
 
