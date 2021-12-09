@@ -12,10 +12,10 @@ inputs:
     required: true
   cf_org:
     description: "Target organization"
-    required: false
+    required: true
   cf_space:
     description: "Target space"
-    required: false
+    required: true
   cf_manifest:
     description: "Manifest file name to use for pushing. Defaults to 'manifest.yml'."
     required: false
