@@ -17,7 +17,7 @@ inputs:
     description: "Target space"
     required: false
   cf_manifest:
-    description: "Manifest file name"
+    description: "Manifest file name to use for pushing. Defaults to 'manifest.yml'."
     required: false
   cf_vars_file:
     description: "Name of the vars file to use"

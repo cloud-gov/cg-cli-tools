@@ -1,29 +1,29 @@
 #!/bin/bash
 
-# Check manifest file.
-MANIFEST=${INPUT_CF_MANIFEST:-manifest.yml}
-if [[ ! -r "$MANIFEST" ]]; then
-  echo Manifest file \`"$MANIFEST"\` does not exist. >&2
-  exit 1
-fi
-
 CF_API=${INPUT_CF_API:-api.fr.cloud.gov}
 # Authenticate and target CF org and space.
 cf api "$CF_API"
 cf auth "$INPUT_CF_USERNAME" "$INPUT_CF_PASSWORD"
 cf target -o "$INPUT_CF_ORG" -s "$INPUT_CF_SPACE"
 
-# If no cf CLI command is set, push app with manifest or vars file.
-if [[ -z "$INPUT_CF_COMMAND" ]]; then  
-  if [[ -r "$INPUT_CF_VARS_FILE" ]]; then 
-    echo "Pushing with vars file: $INPUT_CF_VARS_FILE"
-    cf push --vars-file "$INPUT_CF_VARS_FILE"
-  else 
-    echo "Pusing with manifest file: $MANIFEST"
-    cf push -f "$MANIFEST"
-  fi
-# Otherwise, run the specified cf CLI command.
-else
-    echo "Running command: $INPUT_CF_COMMAND"
-    cf $INPUT_CF_COMMAND
+# If they specified a cf CLI subcommand, run it
+if [[ -n "$INPUT_CF_COMMAND" ]]; then
+  echo "Running command: $INPUT_CF_COMMAND"
+  exec cf $INPUT_CF_COMMAND
+fi
+
+# Otherwise, assume they want to do a cf push.
+
+# If they didn't specify and don't have a default-named manifest.yml, then the
+# push will fail with a pretty accurate message: "Incorrect Usage: The specified
+# path 'manifest.yml' does not exist."
+MANIFEST=${INPUT_CF_MANIFEST:-manifest.yml}
+
+# If they specified a vars file, use it  
+if [[ -r "$INPUT_CF_VARS_FILE" ]]; then 
+  echo "Pushing with vars file: $INPUT_CF_VARS_FILE"
+  cf push -f "$MANIFEST" --vars-file "$INPUT_CF_VARS_FILE" --strategy rolling
+else 
+  echo "Pushing with manifest file: $MANIFEST"
+  cf push -f "$MANIFEST" --strategy rolling
 fi
