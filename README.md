@@ -54,6 +54,7 @@ The default action is to do a `cf push -f manifest.yml --strategy rolling`.
 
 You can also supply:
 
+- `cf_api:` to specify a Cloud Foundry API endpoint (instead of the default `api.fr.cloud.gov`)
 - `cf_manifest:` to use a different manifest file (instead of the default `manifest.yml`)
 - `cf_vars_file:` to [specify values for variables in the manifest file](https://docs.cloudfoundry.org/devguide/deploy-apps/manifest-attributes.html#variable-substitution)
 - `cf_command:` to specify a CF sub-command to run (instead of the default `push -f $MANIFEST -vars-file $VARS_FILE --strategy rolling`)
