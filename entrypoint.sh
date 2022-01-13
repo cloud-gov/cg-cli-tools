@@ -9,7 +9,7 @@ cf target -o "$INPUT_CF_ORG" -s "$INPUT_CF_SPACE"
 # If they specified a full command, run it
 if [[ -n "$INPUT_COMMAND" ]]; then
   echo "Running command: $INPUT_COMMAND"
-  exec $INPUT_COMMAND
+  exec bash -c "$INPUT_COMMAND"
 fi
 
 # If they specified a cf CLI subcommand, run it
