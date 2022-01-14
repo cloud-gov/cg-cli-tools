@@ -62,7 +62,7 @@ You can also supply:
 
 ## A note on versions
 
-By default, this action uses the cf CLI v7. If you want to take advantage of some of the [new features of cf CLI v8](https://docs.cloudfoundry.org/cf-cli/v8.html#new-workflows), you can target the `cli-v8` branch when setting up your workflow, like so: `cloud-gov/cg-cli-tools@cli-v8`
+By default this action uses the cf CLI v8 to take advantage of some of the [new features in that version](https://docs.cloudfoundry.org/cf-cli/v8.html#new-workflows). If you need to use v7 of the CLI, you can target the `cli-v7` branch when setting up your workflow, like so: `cloud-gov/cg-cli-tools@cli-v7`
 
 ## Other options
 
