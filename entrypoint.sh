@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -e
+
 CF_API=${INPUT_CF_API:-api.fr.cloud.gov}
 # Authenticate and target CF org and space.
 cf api "$CF_API"
