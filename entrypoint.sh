@@ -11,13 +11,15 @@ cf target -o "$INPUT_CF_ORG" -s "$INPUT_CF_SPACE"
 # If they specified a full command, run it
 if [[ -n "$INPUT_COMMAND" ]]; then
   echo "Running command: $INPUT_COMMAND"
-  exec bash -c "$INPUT_COMMAND"
+  eval $INPUT_COMMAND
+  exit
 fi
 
 # If they specified a cf CLI subcommand, run it
 if [[ -n "$INPUT_CF_COMMAND" ]]; then
   echo "Running command: $INPUT_CF_COMMAND"
-  exec cf $INPUT_CF_COMMAND
+  eval cf $INPUT_CF_COMMAND
+  exit
 fi
 
 # Otherwise, assume they want to do a cf push.
