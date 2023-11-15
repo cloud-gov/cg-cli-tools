@@ -1,9 +1,4 @@
 FROM cloudfoundry/cli:latest
-
+RUN apk update && apk upgrade && apk add --no-cache bash
 ADD entrypoint.sh /entrypoint.sh
-
-RUN apk update
-RUN apk upgrade
-RUN apk add bash
-
 ENTRYPOINT ["/bin/bash", "/entrypoint.sh"]
