@@ -64,6 +64,16 @@ You can also supply:
 
 By default this action uses the cf CLI v8 to take advantage of some of the [new features in that version](https://docs.cloudfoundry.org/cf-cli/v8.html#new-workflows). If you need to use v7 of the CLI, you can target the `cli-v7` branch when setting up your workflow, like so: `cloud-gov/cg-cli-tools@cli-v7`
 
+## Protecting secret values in attributes for the deployment
+
+If you have secret values in the attributes (environment variables) of the deployment that should remain secret, it is best to use the `--var` flag with `cf push` in this action so that you can pass a Github secret to the command, which will automatically mask the variable in the deployment logs. Use `cf_command` like so: 
+
+```
+cf_command: "push -f <MANIFEST> --var var-name=${{ secrets.SECRET_VAR_VALUE }} --strategy rolling"
+```
+
+**Example**: For the PHP Buildpack, if you want to use New Relic, all you have to do is [provide the license as an environment variable](https://docs.cloudfoundry.org/buildpacks/php/gsg-php-newrelic.html). However if you do not mask the environment variable as part of the deployment, subsequent deploys will show the license in the diff. 
+
 ## Other options
 
 There are other tools and utilities that you can use to deploy your application to cloud.gov. Here is a list of some of the more common options.
