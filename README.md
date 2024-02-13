@@ -57,7 +57,7 @@ You can also supply:
 - `cf_api:` to specify a Cloud Foundry API endpoint (instead of the default `api.fr.cloud.gov`)
 - `cf_manifest:` to use a different manifest file (instead of the default `manifest.yml`)
 - `cf_vars_file:` to [specify values for variables in the manifest file](https://docs.cloudfoundry.org/devguide/deploy-apps/manifest-attributes.html#variable-substitution)
-- `cf_command:` to specify a CF sub-command to run (instead of the default `push -f $MANIFEST -vars-file $VARS_FILE --strategy rolling`)
+- `cf_command:` to specify a CF sub-command to run (instead of the default `push -f $cf_manifest -vars-file $cf_vars_file --strategy rolling`)
 - `command:` to specify another command altogether (for example: a script which checks if required services are present and creates them if they're missing)
 
 ## A note on versions
